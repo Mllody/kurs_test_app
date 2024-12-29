@@ -1,0 +1,46 @@
+/* Stylizacja kontenera bocznego menu */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    overflow-y: auto;
+    transition: transform 0.3s ease;
+    transform: translateX(-100%);
+}
+
+/* Kiedy menu jest aktywne */
+.sidebar.active {
+    transform: translateX(0);
+}
+
+/* Linki w menu */
+.sidebar a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 10px 0;
+    border-bottom: 1px solid #444;
+}
+
+/* Efekt hover dla linków */
+.sidebar a:hover {
+    background-color: #575757;
+}
+
+/* Przycisk do otwierania/zamykania menu */
+.menu-toggle {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1000;
+}

@@ -15,11 +15,15 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from django.views.generic import TemplateView
+from django.urls import path, include
+from django.http import HttpResponse
+
+# Prosta widok funkcji dla strony głównej
+def home_view(request):
+    return HttpResponse("Witamy na stronie głównej backendu Django!")
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('login/', TemplateView.as_view(template_name='login.html'), name='login'),
+    path("admin/", admin.site.urls),
+    path("accounts/", include("accounts.urls")),  # Ścieżki z aplikacji 'accounts'
+    path("", home_view, name="home"),  # Domyślna strona główna
 ]
-
