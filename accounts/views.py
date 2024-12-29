@@ -7,6 +7,8 @@ from .serializers import UserSerializer
 from django.contrib.auth import authenticate, login
 from django.http import JsonResponse
 import json
+from django.views.decorators.csrf import csrf_exempt
+from django.utils.decorators import method_decorator
 
 class CreateUserView(APIView):
     permission_classes = [IsAdminUser]  # Tylko administrator
@@ -51,7 +53,7 @@ class TrainingListView(APIView):
         })
 
 
-# Dodaj custom_login_view
+@csrf_exempt  # Wyłącza wymóg CSRF dla logowania (tylko w przypadku POST)
 def custom_login_view(request):
     if request.method == "POST":
         try:

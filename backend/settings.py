@@ -25,9 +25,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-_h_all%m32_1&hd@0))3t#o9b&x7_xtds)thu$slt)(6yf93je'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "localhost,127.0.0.1,nullec-ai.onrender.com").split(",")
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "nullsec-ai.onrender.com"]
+
 
 
 
@@ -142,6 +143,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [BASE_DIR / "static"]
 
 # Default primary key field type
@@ -166,6 +168,7 @@ ACCOUNT_EMAIL_VERIFICATION = 'optional'
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
+    'https://nullsec-ai.onrender.com',
 ]
 
 CSRF_TRUSTED_ORIGINS = [
